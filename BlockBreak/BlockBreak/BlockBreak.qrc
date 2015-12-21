@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>components/Ball.qml</file>
+        <file>components/Paddle.qml</file>
+        <file>components/Block.qml</file>
+        <file>components/PauseButton.qml</file>
+        <file>grid.png</file>
+        <file>PIJAMAS_.ttf</file>
+        <file>Paddle.png</file>
+        <file>Ball.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=BlockBreak
+Exec=BlockBreak
+Icon=BlockBreak/BlockBreak.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+

@@ -1,0 +1,16 @@
+{
+    "name": "radonapps.blockbreak",
+    "description": "description of BlockBreak",
+    "architecture": "@CLICK_ARCH@",
+    "title": "BlockBreak",
+    "hooks": {
+        "BlockBreak": {
+            "apparmor": "BlockBreak/BlockBreak.apparmor",
+            "desktop":  "BlockBreak/BlockBreak.desktop"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "Daniyaal Rasheed <radonapps@gmail.com>",
+    "framework" : "ubuntu-sdk-15.04"
+}
+
