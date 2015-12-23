@@ -286,31 +286,31 @@ Game {
             drag.target: paddle
         }
 
-        Text {
+        Label {
             id: scoreLabel
             text: gameScene.score
             anchors.centerIn: parent
             font.family: doodleFont.name
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
-            font.pointSize: units.gu(10)
+            font.pointSize: units.gu(8)
         }
 
-        Text {
+        Label {
             id: highScoreLabel
             text: "High: " + gameData.highscore
             anchors.top: scoreLabel.bottom
             x: parent.width / 2 - width / 2
             font.family: doodleFont.name
             verticalAlignment: Text.AlignVCenter
-            font.pointSize: units.gu(5)
+            font.pointSize: units.gu(4)
         }
 
-        Text {
+        Label {
             id: gameOverLabel
             text: "Game Over\n" + (gameScene.score >= 30 ? "You Rule" : "You Suck")
             font.family: doodleFont.name
-            font.pointSize: units.gu(10)
+            fontSize: "x-large"
             anchors.centerIn: parent
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
@@ -397,14 +397,14 @@ Game {
             duration: 500
         }
 
-        Text {
+        Label {
             id: title
             text: "Block\nBreak"
             font.family: doodleFont.name
             font.italic: true
             color: "grey"
             style: Text.Raised
-            font.pointSize: units.gu(10)
+            font.pointSize: units.gu(6)
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             x: parent.width / 2 - width / 2
@@ -422,12 +422,12 @@ Game {
                 }
             }
 
-            Text {
+            Label {
                 id: visibleMessage
                 anchors.fill: parent
                 text: "Tap Anywhere to Start"
-                font.pointSize: units.gu(5)
                 font.family: doodleFont.name
+                fontSize: "x-large"
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 color: "cyan"

@@ -9,7 +9,7 @@ Component
     PhysicsEntity {
         id: collisionEntity
         width: (Screen.width / 6) - 5
-        height: units.gu(8)
+        height: units.gu(6)
         bodyType: Body.Static
         objectName: "block"
         property int specialFeature: 0

@@ -5,7 +5,7 @@ import QtQuick.Window 2.0
 Component {
     PhysicsEntity {
         id: ballEntity
-        width: units.gu(8)
+        width: units.gu(5)
         height: width
         sleepingAllowed: false
         bodyType: Body.Dynamic
