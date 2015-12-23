@@ -1,16 +1,17 @@
 import QtQuick 2.3
 import Bacon2D 1.0
+import Ubuntu.Components 1.1
 
 Item
 {
-   width: 30
-   height: 30
+   width: units.gu(8)
+   height: width
 
    Rectangle
    {
        id: left
-       width: 13
-       height: 30
+       width: parent.width * 0.45
+       height: parent.height
        color: "black"
        x:0
        y:0
@@ -18,8 +19,8 @@ Item
    Rectangle
    {
        id: right
-       width: 13
-       height: 30
+       width: parent.width * 0.45
+       height: parent.height
        color: "black"
        x: parent.width - width
        y: 0

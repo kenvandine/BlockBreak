@@ -6,8 +6,8 @@ import Ubuntu.Components 1.1
 PhysicsEntity
 {
     id: paddleEntity
-    width: Screen.width * 60 / 320
-    height: 30
+    width: Screen.width * 0.3
+    height: units.gu(6)
     bodyType: Body.Static
     sleepingAllowed: false
     property bool isBlock: false

@@ -4,18 +4,12 @@ import Bacon2D 1.0
 import Ubuntu.Components 1.1
 import "components"
 
-MainView
-{
-    id: main
-    width: Screen.width
-    height: Screen.height
-    useDeprecatedToolbar: false
 Game
 {
     id: game
-    anchors.fill: parent
-    anchors.centerIn: parent
-    gameName: "com.ubuntu.developer.xcub.breakout" //Reverse DNS formate, not mandatory
+    width: Screen.width
+    height: Screen.height
+    gameName: "blockbreak.xcub" //Same as the appId in the click package
 
     currentScene: menuScene
 
@@ -81,8 +75,8 @@ Game
             z: 1
             Image
             {
-                width: Screen.width * 50 / 320
-                height: Screen.width * 50 / 320
+                width: units.gu(10)
+                height: width
                 x: parent.width / 2 + 10
                 y: parent.height / 2 - height / 2
                 source: "ResumeButton.png"
@@ -97,8 +91,8 @@ Game
             }
             Image
             {
-                width: Screen.width * 50 / 320
-                height: Screen.width * 50 / 320
+                width: units.gu(10)
+                height: width
                 x: parent.width / 2 - width - 10
                 y: parent.height / 2 - height / 2
                 source: "GoBackButton.png"
@@ -133,8 +127,12 @@ Game
         PauseButton
         {
             id: pauseButton
-            x: parent.width - (width + 5)
-            y: 5
+            anchors {
+                top: parent.top
+                right: parent.right
+                topMargin: units.gu(5)
+                rightMargin: units.gu(5)
+            }
             z: 1
             MouseArea
             {
@@ -217,7 +215,7 @@ Game
             {
                 score++;
                 var convert = targetA.specialFeature;
-                var timer = Qt.createQmlObject("import QtQuick 2.3; Timer {}", main);
+                var timer = Qt.createQmlObject("import QtQuick 2.3; Timer {}", game);
                 timer.interval = 10;
                 timer.repeat = false;
                 timer.triggered.connect(function () {
@@ -232,7 +230,7 @@ Game
             {
                 score++;
                 var convertB = targetA.specialFeature;
-                var timerB = Qt.createQmlObject("import QtQuick 2.3; Timer {}", main);
+                var timerB = Qt.createQmlObject("import QtQuick 2.3; Timer {}", game);
                 timerB.interval = 50;
                 timerB.repeat = false;
                 timerB.triggered.connect(function () {
@@ -246,7 +244,7 @@ Game
             if (gameScene.score == gameScene.nextScoreToGet)
             {
                 gameScene.nextScoreToGet += 30;
-                var blockTimer = Qt.createQmlObject("import QtQuick 2.3; Timer {}", main);
+                var blockTimer = Qt.createQmlObject("import QtQuick 2.3; Timer {}", game);
                 blockTimer.interval = 2000;
                 blockTimer.repeat = false;
                 blockTimer.triggered.connect(function () {
@@ -317,7 +315,7 @@ Game
            font.family: doodleFont.name
            verticalAlignment: Text.AlignVCenter
            horizontalAlignment: Text.AlignHCenter
-           font.pointSize: Screen.height * 75 / 568
+           font.pointSize: units.gu(10)
        }
 
        Text
@@ -328,7 +326,7 @@ Game
            x: parent.width / 2 - width / 2
            font.family: doodleFont.name
            verticalAlignment: Text.AlignVCenter
-           font.pointSize: Screen.height * 25.0 / 568.0
+           font.pointSize: units.gu(5)
        }
 
        Text
@@ -336,8 +334,7 @@ Game
            id: gameOverLabel
            text: "Game Over\n" + (gameScene.score >= 30 ? "You Rule" : "You Suck")
            font.family: doodleFont.name
-           font.pointSize: Screen.width * 30 / 320
-           width: 300
+           font.pointSize: units.gu(10)
            anchors.centerIn: parent
            horizontalAlignment: Text.AlignHCenter
            verticalAlignment: Text.AlignVCenter
@@ -349,8 +346,8 @@ Game
        {
            id: replayButton
            source: "ReplayButton.png"
-           width: Screen.height * 50 / 568
-           height: Screen.height * 50 / 568
+           width: units.gu(10)
+           height: width
            x: parent.width / 2 - width / 2
            anchors.top: gameOverLabel.bottom
            visible: gameOverLabel.visible
@@ -447,7 +444,7 @@ Game
             font.italic: true
             color: "grey"
             style: Text.Raised
-            font.pointSize: Screen.width * 60 / 320
+            font.pointSize: units.gu(10)
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             x: parent.width / 2 - width / 2
@@ -472,7 +469,7 @@ Game
                 id: visibleMessage
                 anchors.fill: parent
                 text: "Tap Anywhere to Start"
-                font.pointSize: Screen.width * 10 / 320
+                font.pointSize: units.gu(5)
                 font.family: doodleFont.name
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
@@ -488,10 +485,5 @@ Game
                 game.currentScene = gameScene;
             }
         }
-
-
     }
-
-
-}
 }

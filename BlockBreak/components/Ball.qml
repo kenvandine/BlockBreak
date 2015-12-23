@@ -6,8 +6,8 @@ Component{
     PhysicsEntity
     {
         id: ballEntity
-        width: 15 * Screen.height / 568
-        height: 15 * Screen.height / 568
+        width: units.gu(8)
+        height: width
         sleepingAllowed: false
         bodyType: Body.Dynamic
 
