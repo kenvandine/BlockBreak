@@ -24,6 +24,8 @@ Component
             y: 0
             width: target.width
             height: target.height
+            categories: Fixture.Category1
+            collidesWith: Fixture.Category2
         }
 
 

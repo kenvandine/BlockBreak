@@ -9,5 +9,8 @@
         <file>PIJAMAS_.ttf</file>
         <file>Paddle.png</file>
         <file>Ball.png</file>
+        <file>ReplayButton.png</file>
+        <file>ResumeButton.png</file>
+        <file>GoBackButton.png</file>
     </qresource>
 </RCC>

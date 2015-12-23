@@ -16,6 +16,8 @@ PhysicsEntity
        y: 0
        width: target.width
        height: target.height
+       categories: Fixture.Category3
+       collidesWith: Fixture.Category2
     }
 
     Image {
