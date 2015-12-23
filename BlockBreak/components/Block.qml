@@ -1,35 +1,31 @@
 import QtQuick 2.0
 import Bacon2D 1.0
 import QtQuick.Window 2.0
+import Ubuntu.Components 1.3
 
 Component
 {
     id: blockComponent
-    PhysicsEntity
-    {
+    PhysicsEntity {
         id: collisionEntity
         width: (Screen.width / 6) - 5
         height: units.gu(8)
         bodyType: Body.Static
         objectName: "block"
         property int specialFeature: 0
-        function startAnim()
-        {
+        function startAnim() {
             this.destroy();
         }
 
         property int colorIndex: 0
-        fixtures: Box{
+        fixtures: Box {
             x: 0
             y: 0
             width: target.width
             height: target.height
             categories: Fixture.Category1
             collidesWith: Fixture.Category2
-        }
-
-
-
+       }
 
        property var colors: [
             Qt.rgba(202/255, 1, 1),
@@ -39,47 +35,17 @@ Component
             Qt.rgba(75/255, 0, 130/255)
         ]
 
-        Rectangle
-        {
+        Rectangle {
             id: visiblePart
             anchors.fill: parent
             color: colors[colorIndex]
 
-            Behavior on width
-            {
-                NumberAnimation
-                {
+            Behavior on width {
+                NumberAnimation {
                     duration: 400
                 }
             }
         }
-
-        /*Canvas
-        {
-             id: canvas
-             anchors.fill: parent
-             onPaint:
-             {
-                 var ctx = canvas.getContext("2d");
-                 ctx.lineWidth = 2;
-                 ctx.strokeStyle="black";
-                 ctx.beginPath();
-                 ctx.moveTo(0,0);
-                 ctx.lineTo(0, parent.height);
-                 ctx.lineTo(parent.width, parent.height);
-                 ctx.lineTo(parent.width, 0);
-                 ctx.lineTo(0,0);
-
-                 ctx.stroke();
-                 ctx.fillStyle = colors[colorIndex];
-                 ctx.fill();
-                 ctx.closePath();
-             }
-        }*/
-
-
-
-
     }
 }
 
